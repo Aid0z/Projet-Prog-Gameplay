@@ -914,14 +914,14 @@ MonoBehaviour:
   - {fileID: 333588635}
   - {fileID: 742405908}
   - {fileID: 724713254}
-  randomEnemies: 0
+  randomEnemies: 1
   enemyPrefab: {fileID: 3016354033131845695, guid: ee5985af4b58a2e4c86037de5e29e548,
     type: 3}
   players:
   - {fileID: 595530622}
   - {fileID: 606934066}
   - {fileID: 278946494}
-  randomPlayers: 0
+  randomPlayers: 1
   playerPrefab: {fileID: 6764906542325408614, guid: c430538eaa4572843b5c3c576d71f8bc,
     type: 3}
 --- !u!114 &782977617
@@ -1192,13 +1192,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1001 &1011301234
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -23,8 +23,9 @@ public class KillPlayerScript : MonoBehaviour
                     if (playerGameObject != null && enemyGameObject.GetComponent<Collider>().bounds
                         .Intersects(playerGameObject.GetComponent<Collider>().bounds))
                     {
+                        int score = TAccessor<PlayerModule>.Instance().GetModule(j).worth;
                         TAccessor<PlayerModule>.Instance().RemoveModule(j);
-                        ScoreAccessor.Instance().AddToEnemyScore(10);
+                        ScoreAccessor.Instance().AddToEnemyScore(score);
                     }
                 }
             }

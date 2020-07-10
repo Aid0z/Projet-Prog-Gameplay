@@ -23,8 +23,9 @@ public class EatEdibleScript : MonoBehaviour
                     if (edibleGameObject != null && playerGameObject.GetComponent<Collider>().bounds
                         .Intersects(edibleGameObject.GetComponent<Collider>().bounds))
                     {
+                        int score = TAccessor<EdibleModule>.Instance().GetModule(j).worth;
                         TAccessor<EdibleModule>.Instance().RemoveModule(j);
-                        ScoreAccessor.Instance().AddToPlayerScore(10);
+                        ScoreAccessor.Instance().AddToPlayerScore(score);
                     }
                 }
             }

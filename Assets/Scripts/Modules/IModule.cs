@@ -2,5 +2,5 @@
 
 public interface IModule
 {
-    new void SetGameObject(GameObject obj);
+    //new void SetGameObject(GameObject obj);
 }
