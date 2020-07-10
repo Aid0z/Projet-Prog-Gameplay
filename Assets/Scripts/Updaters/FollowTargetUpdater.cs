@@ -20,25 +20,22 @@ public class FollowTargetUpdater : MonoBehaviour
         {
             for (int i = 0; i < enemyNb; i++)
             {
-                GameObject enemyGameObject = TAccessor<EnemyModule>.Instance().GetGameObject(i);
-                GameObject playerGameObject = TAccessor<PlayerModule>.Instance().GetGameObject(0);
-                float minDist = Vector3.Distance(playerGameObject.transform.position, enemyGameObject.transform.position);
-                enemyModules[i].destination = playerGameObject.transform.position;
+                float minDist = Vector3.Distance(playerModules[i].transform.position, enemyModules[0].transform.position);
+                enemyModules[i].destination = playerModules[0].transform.position;
                 
                 for (int j = 1; j < playerNb; j++)
                 {
-                    playerGameObject = TAccessor<PlayerModule>.Instance().GetGameObject(j);
-                    float tmpDist = Vector3.Distance(playerGameObject.transform.position,
-                        enemyGameObject.transform.position);
+                    float tmpDist = Vector3.Distance(playerModules[i].transform.position,
+                        enemyModules[i].transform.position);
                     if (tmpDist < minDist)
                     {
-                        enemyModules[i].destination = playerGameObject.transform.position;
+                        enemyModules[i].destination = playerModules[i].transform.position;
                         minDist = tmpDist;
                     }
                 }
 
-                enemyGameObject.GetComponent<Rigidbody>().velocity =
-                    Vector3.Normalize(enemyModules[i].destination - enemyGameObject.transform.position);
+                enemyModules[i].rigidbody.velocity =
+                    Vector3.Normalize(enemyModules[i].destination - enemyModules[i].transform.position);
             }
         }
     }

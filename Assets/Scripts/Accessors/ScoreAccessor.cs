@@ -1,4 +1,4 @@
-﻿public class ScoreAccessor
+﻿public class ScoreAccessor //pas eu le temps de faire les modifications nécessaires pour supprimer ScoreAccessor
 {
     private static ScoreAccessor _singleton = null;
     private static ScoreModule _module;

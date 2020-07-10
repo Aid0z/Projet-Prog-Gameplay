@@ -3,7 +3,7 @@
 public class EdibleModule : EntityModule
 {
     public new GameObject gameObject;
-    public new int worth = 10;
+    public new int worth = 5;
 
     /*void Awake()
     {

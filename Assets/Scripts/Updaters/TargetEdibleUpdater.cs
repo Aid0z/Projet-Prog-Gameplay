@@ -20,25 +20,22 @@ public class TargetEdibleUpdater : MonoBehaviour
         {
             for (int i = 0; i < playerNb; i++)
             {
-                GameObject playerGameObject = TAccessor<PlayerModule>.Instance().GetGameObject(i);
-                GameObject edibleGameObject = TAccessor<EdibleModule>.Instance().GetGameObject(0);
-                float minDist = Vector3.Distance(playerGameObject.transform.position, edibleGameObject.transform.position);
-                playerModules[i].destination = edibleGameObject.transform.position;
+                float minDist = Vector3.Distance(playerModules[i].transform.position, edibleModules[0].transform.position);
+                playerModules[i].destination = edibleModules[0].transform.position;
                 
                 for (int j = 1; j < edibleNb; j++)
                 {
-                    edibleGameObject = TAccessor<EdibleModule>.Instance().GetGameObject(j);
-                    float tmpDist = Vector3.Distance(playerGameObject.transform.position,
-                        edibleGameObject.transform.position);
+                    float tmpDist = Vector3.Distance(playerModules[i].transform.position,
+                        edibleModules[j].transform.position);
                     if (tmpDist < minDist)
                     {
-                        playerModules[i].destination = edibleGameObject.transform.position;
+                        playerModules[i].destination = edibleModules[j].transform.position;
                         minDist = tmpDist;
                     }
                 }
 
-                playerGameObject.GetComponent<Rigidbody>().velocity =
-                    Vector3.Normalize(playerModules[i].destination - playerGameObject.transform.position);
+                playerModules[i].rigidbody.velocity =
+                    Vector3.Normalize(playerModules[i].destination - playerModules[i].transform.position);
             }
         }
     }

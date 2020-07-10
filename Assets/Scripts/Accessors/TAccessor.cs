@@ -41,6 +41,9 @@ public class TAccessor<T> where T : EntityModule, new()
         {
             T newModule = new T();
             newModule.gameObject = objs[i];
+            newModule.rigidbody = objs[i].GetComponent<Rigidbody>();
+            newModule.transform = objs[i].transform;
+            newModule.collider = objs[i].GetComponent<Collider>();
             Add(newModule);
         }
     }
@@ -49,6 +52,9 @@ public class TAccessor<T> where T : EntityModule, new()
     {
         T newModule = new T();
         newModule.gameObject = obj;
+        newModule.rigidbody = obj.GetComponent<Rigidbody>();
+        newModule.transform = obj.transform;
+        newModule.collider = obj.GetComponent<Collider>();
         Add(newModule);
     }
 
@@ -72,4 +78,24 @@ public class TAccessor<T> where T : EntityModule, new()
         _modules.RemoveAt(index);
         module.gameObject.SetActive(false);
     }
+    
+    /*public int GetPlayerScore()
+    {
+        return _modules[0].playerScore;
+    }
+
+    public int GetEnemyScore()
+    {
+        return _modules[0].enemyScore;
+    }
+
+    public void AddToPlayerScore(int points)
+    {
+        _modules[0].playerScore += points;
+    }
+
+    public void AddToEnemyScore(int points)
+    {
+        _modules[0].enemyScore += points;
+    }*/
 }

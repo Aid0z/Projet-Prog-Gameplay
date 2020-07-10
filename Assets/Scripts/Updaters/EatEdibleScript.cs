@@ -15,17 +15,15 @@ public class EatEdibleScript : MonoBehaviour
         {
             for (int i = 0; i < playerNb; i++)
             {
-                GameObject playerGameObject = TAccessor<PlayerModule>.Instance().GetGameObject(i);
-                
                 for (int j = 0; j < edibleNb; j++)
                 {
-                    GameObject edibleGameObject = TAccessor<EdibleModule>.Instance().GetGameObject(j);
-                    if (edibleGameObject != null && playerGameObject.GetComponent<Collider>().bounds
-                        .Intersects(edibleGameObject.GetComponent<Collider>().bounds))
+                    if (playerModules[i].collider.bounds
+                        .Intersects(edibleModules[i].collider.bounds))
                     {
                         int score = TAccessor<EdibleModule>.Instance().GetModule(j).worth;
                         TAccessor<EdibleModule>.Instance().RemoveModule(j);
                         ScoreAccessor.Instance().AddToPlayerScore(score);
+                        Debug.Log("Players : " + ScoreAccessor.Instance().GetPlayerScore() + "   Enemies : " + ScoreAccessor.Instance().GetEnemyScore());
                     }
                 }
             }

@@ -15,17 +15,15 @@ public class KillPlayerScript : MonoBehaviour
         {
             for (int i = 0; i < enemyNb; i++)
             {
-                GameObject enemyGameObject = TAccessor<EnemyModule>.Instance().GetGameObject(i);
-                
                 for (int j = 0; j < playerNb; j++)
                 {
-                    GameObject playerGameObject = TAccessor<PlayerModule>.Instance().GetGameObject(j);
-                    if (playerGameObject != null && enemyGameObject.GetComponent<Collider>().bounds
-                        .Intersects(playerGameObject.GetComponent<Collider>().bounds))
+                    if (enemyModules[i].collider.bounds
+                        .Intersects(playerModules[j].collider.bounds))
                     {
                         int score = TAccessor<PlayerModule>.Instance().GetModule(j).worth;
                         TAccessor<PlayerModule>.Instance().RemoveModule(j);
                         ScoreAccessor.Instance().AddToEnemyScore(score);
+                        Debug.Log("Players : " + ScoreAccessor.Instance().GetPlayerScore() + "   Enemies : " + ScoreAccessor.Instance().GetEnemyScore());
                     }
                 }
             }
