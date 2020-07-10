@@ -546,7 +546,7 @@ PrefabInstance:
     - target: {fileID: 6185404422804528668, guid: c430538eaa4572843b5c3c576d71f8bc,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.24
+      value: 6.66
       objectReference: {fileID: 0}
     - target: {fileID: 6185404422804528668, guid: c430538eaa4572843b5c3c576d71f8bc,
         type: 3}
@@ -907,7 +907,7 @@ MonoBehaviour:
   - {fileID: 1798100933}
   - {fileID: 1270825515}
   - {fileID: 1453453491}
-  randomFruits: 0
+  randomFruits: 1
   fruitPrefab: {fileID: 307375464098952897, guid: 394a67fbeef2454458b3038dd552fc62,
     type: 3}
   enemies:

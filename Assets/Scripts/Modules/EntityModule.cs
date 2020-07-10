@@ -3,5 +3,5 @@
 public class EntityModule
 {
     public GameObject gameObject;
-    public Vector3 destination;
+    public Vector3 destination = new Vector3();
 }
